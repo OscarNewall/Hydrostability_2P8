@@ -230,7 +230,7 @@ def catastrophe_theory_plot(rho):
     plt.show()
 
 # plot_relative_density_against_stable_angle()
-plot_PE_against_angle_for_given_rho(0.)
+plot_PE_against_angle_for_given_rho(0.4)
 
 plot_GZ_against_heel_angle_for_given_rho(0.4)
 
