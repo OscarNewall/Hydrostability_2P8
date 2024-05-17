@@ -119,7 +119,7 @@ def get_PE(theta, rho):
     
 
 def plot_PE_against_angle_for_given_rho(rho):
-    heel_angles = np.linspace(0, np.pi*50/180, 600)
+    heel_angles = np.linspace(0, np.pi*45/180, 600)
     PEs = np.zeros(600)
     for index in range(len(heel_angles)):
         PEs[index] = get_PE(heel_angles[index], rho)
@@ -139,7 +139,7 @@ def plot_relative_density_against_stable_angle():
     min_PE_angles = np.zeros(99)
     for n in range(len(rho_list)):
 
-        heel_angles = np.linspace(0, (50*np.pi)/180, 600)
+        heel_angles = np.linspace(0, (45*np.pi)/180, 600)
         PEs = np.zeros(600)
         for m in range(len(heel_angles)):
             PEs[m] = get_PE(heel_angles[m], rho_list[n])
@@ -166,7 +166,7 @@ def get_GZ(theta, rho):
         return(GZ)
 
 def plot_GZ_against_heel_angle_for_given_rho(rho):
-    heel_angles = np.linspace(0, np.pi/3, 600)
+    heel_angles = np.linspace(0, 45*np.pi/180, 600)
     GZs = np.zeros(600)
     for index in range(len(heel_angles)):
         GZs[index] = get_GZ(heel_angles[index], rho)
@@ -190,7 +190,7 @@ def get_CoB(theta, rho):
         return(CoB)
 
 def catastrophe_theory_plot(rho):
-    heel_angles = np.linspace(0, (80*np.pi)/180, 600)
+    heel_angles = np.linspace(0, (45*np.pi)/180, 600)
     CoBs = np.zeros([600,3])
     for i in range(len(heel_angles)):
         CoBs[i] = get_CoB(heel_angles[i], rho)
@@ -214,8 +214,8 @@ def catastrophe_theory_plot(rho):
         v = -s*i + c*j # <-- what we're after
         verticals[index] = v
     
-    for i in range(len(CoBs)//20):
-        i = i*20
+    for i in range(len(CoBs)//35):
+        i = i*35
         x_for_line = np.array([CoBs[i,0],CoBs[i,0]+verticals[i,0]])
         y_for_line = np.array([CoBs[i,1],CoBs[i,1]+verticals[i,1]])
         plt.plot(x_for_line,y_for_line,color = 'orange', linewidth = 0.7)
@@ -223,17 +223,17 @@ def catastrophe_theory_plot(rho):
     
     plt.plot([0],[0.5],'o', markersize = 3, color = 'black', label = 'Centre of Gravity')
     plt.legend()
-    plt.title('Construction of the evolute for relative density = 0.6')
+    plt.title('Construction of the evolute for relative density = 0.4')
     plt.xlabel('x')
     plt.ylabel('y')
     ax.set_aspect('equal')
     plt.show()
 
 # plot_relative_density_against_stable_angle()
-# plot_PE_against_angle_for_given_rho(0.6)
+plot_PE_against_angle_for_given_rho(0.)
 
-# plot_GZ_against_heel_angle_for_given_rho(0.6)
+plot_GZ_against_heel_angle_for_given_rho(0.4)
 
-catastrophe_theory_plot(0.6)
+catastrophe_theory_plot(0.4)
 
 """ UNCOMMENT SOME/ALL OF THE ABOVE TO GET PLOTS """
